@@ -21,6 +21,13 @@
   //#define VARIANT_TRANSPOTTER // Variant for TRANSPOTTER build https://github.com/NiklasFauth/hoverboard-firmware-hack/wiki/Build-Instruction:-TranspOtter https://hackaday.io/project/161891-transpotter-ng
   //#define VARIANT_SKATEBOARD  // Variant for SKATEBOARD build
 #endif
+
+/*  Disable/enable steer control.
+*   If defined, steer variable means movement task to left motor.
+*/
+
+// #define MODE_NO_STEER
+
 // ########################### END OF VARIANT SELECTION ############################
 
 
