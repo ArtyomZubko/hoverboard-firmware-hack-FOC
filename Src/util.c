@@ -1652,13 +1652,13 @@ void mixerFcn(int16_t rtu_speed, int16_t rtu_steer, int16_t *rty_speedR, int16_t
 
 
   prodSpeed   = (int16_t)((rtu_speed * (int16_t)SPEED_COEFFICIENT) >> 14);
-  #ifndef MODE_STEER
+  #ifndef MODE_NO_STEER
   prodSteer   = (int16_t)((rtu_steer * (int16_t)STEER_COEFFICIENT) >> 14);
   #else
   prodSteer   = (int16_t)((rtu_steer * (int16_t)SPEED_COEFFICIENT) >> 14);
   #endif
 
-  #ifndef MODE_STEER
+  #ifndef MODE_NO_STEER
   tmp         = prodSpeed - prodSteer;  
   #else
   tmp         = prodSpeed; 
@@ -1668,7 +1668,7 @@ void mixerFcn(int16_t rtu_speed, int16_t rtu_steer, int16_t *rty_speedR, int16_t
   *rty_speedR = (int16_t)(tmp >> 4);        // Convert from fixed-point to int 
   *rty_speedR = CLAMP(*rty_speedR, INPUT_MIN, INPUT_MAX);
 
-  #ifndef MODE_STEER
+  #ifndef MODE_NO_STEER
   tmp         = prodSpeed + prodSteer;
   #else
   tmp         = prodSteer;
